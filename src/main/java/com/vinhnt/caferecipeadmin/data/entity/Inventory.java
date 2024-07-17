@@ -19,4 +19,13 @@ public class Inventory {
     private Double quantity;
 
     // Getters and setters
+
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
 }
