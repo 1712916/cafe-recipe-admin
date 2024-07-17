@@ -1,11 +1,11 @@
-package com.vinhnt.caferecipeadmin.data.model;
+package com.vinhnt.caferecipeadmin.data.entity;
 
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
-public class Recipe {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,8 +13,8 @@ public class Recipe {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
-    private List<RecipeStep> steps;
+    @ElementCollection
+    private List<String> images;
 
     // Getters and setters
     public Long getId() {
@@ -41,11 +41,11 @@ public class Recipe {
         this.description = description;
     }
 
-    public List<RecipeStep> getSteps() {
-        return steps;
+    public List<String> getImages() {
+        return images;
     }
 
-    public void setSteps(List<RecipeStep> steps) {
-        this.steps = steps;
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 }

@@ -1,22 +1,20 @@
-package com.vinhnt.caferecipeadmin.data.model;
+package com.vinhnt.caferecipeadmin.data.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-public class RecipeStep {
+public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "recipe_id", nullable = false)
-    @JsonIgnore
-    private Recipe recipe;
-
     private String name;
     private String description;
-    private int stepNumber;
+
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+    private List<RecipeStep> steps;
 
     // Getters and setters
     public Long getId() {
@@ -25,14 +23,6 @@ public class RecipeStep {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
     }
 
     public String getName() {
@@ -51,11 +41,11 @@ public class RecipeStep {
         this.description = description;
     }
 
-    public int getStepNumber() {
-        return stepNumber;
+    public List<RecipeStep> getSteps() {
+        return steps;
     }
 
-    public void setStepNumber(int stepNumber) {
-        this.stepNumber = stepNumber;
+    public void setSteps(List<RecipeStep> steps) {
+        this.steps = steps;
     }
 }

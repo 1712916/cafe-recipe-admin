@@ -1,7 +1,7 @@
 package com.vinhnt.caferecipeadmin.controller;
 
-import com.vinhnt.caferecipeadmin.data.model.Recipe;
-import com.vinhnt.caferecipeadmin.data.model.RecipeStep;
+import com.vinhnt.caferecipeadmin.data.entity.Recipe;
+import com.vinhnt.caferecipeadmin.data.entity.RecipeStep;
 import com.vinhnt.caferecipeadmin.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

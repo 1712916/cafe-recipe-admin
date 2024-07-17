@@ -1,6 +1,6 @@
 package com.vinhnt.caferecipeadmin.service;
 
-import com.vinhnt.caferecipeadmin.data.model.Recipe;
+import com.vinhnt.caferecipeadmin.data.entity.Recipe;
 import com.vinhnt.caferecipeadmin.data.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

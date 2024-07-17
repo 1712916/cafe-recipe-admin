@@ -1,20 +1,22 @@
-package com.vinhnt.caferecipeadmin.data.model;
+package com.vinhnt.caferecipeadmin.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
-public class Product {
+public class RecipeStep {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "recipe_id", nullable = false)
+    @JsonIgnore
+    private Recipe recipe;
+
     private String name;
     private String description;
-
-    @ElementCollection
-    private List<String> images;
+    private int stepNumber;
 
     // Getters and setters
     public Long getId() {
@@ -23,6 +25,14 @@ public class Product {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
     }
 
     public String getName() {
@@ -41,11 +51,11 @@ public class Product {
         this.description = description;
     }
 
-    public List<String> getImages() {
-        return images;
+    public int getStepNumber() {
+        return stepNumber;
     }
 
-    public void setImages(List<String> images) {
-        this.images = images;
+    public void setStepNumber(int stepNumber) {
+        this.stepNumber = stepNumber;
     }
 }

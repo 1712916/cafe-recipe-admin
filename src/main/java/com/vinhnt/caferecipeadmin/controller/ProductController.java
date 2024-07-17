@@ -1,12 +1,11 @@
 package com.vinhnt.caferecipeadmin.controller;
 
-import com.vinhnt.caferecipeadmin.data.model.Product;
+import com.vinhnt.caferecipeadmin.data.entity.Product;
 import com.vinhnt.caferecipeadmin.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
