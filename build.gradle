@@ -21,11 +21,19 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-//    runtimeOnly 'com.h2database:h2'
+    //runtimeOnly 'com.h2database:h2'
     implementation 'org.postgresql:postgresql'
 
+
+    ///Unit test: spring-boot-starter-test packages libiraies for testing
+    ///https://stackoverflow.com/questions/61117933/whats-the-difference-between-spring-boot-test-vs-spring-boot-starter-test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    ///Junit5: https://www.geeksforgeeks.org/junit-5-gradle-dependency/
+    ///https://gabrielpulga.medium.com/a-beginners-guide-to-unit-testing-crud-endpoints-of-a-spring-boot-java-web-service-api-8ae342c9cbcd
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
 }
 
 tasks.named('test') {
