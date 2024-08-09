@@ -22,10 +22,14 @@ public class ProductService {
     }
 
     public Product save(Product product) {
+        //todo: check required data
         return productRepository.save(product);
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(Long id) throws ProductNotFoundException {
+        productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException(id));
+
         productRepository.deleteById(id);
     }
 }

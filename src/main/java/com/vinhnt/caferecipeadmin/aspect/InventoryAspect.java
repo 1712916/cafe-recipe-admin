@@ -21,7 +21,7 @@ public class InventoryAspect {
     public void updateInventory(InventoryTransaction transaction) {
         Optional<Inventory> inventoryOptional = inventoryRepository.findByIngredientId(transaction.getIngredient().getId());
 
-        if (!inventoryOptional.isPresent()) {
+        if (inventoryOptional.isEmpty()) {
             // Nếu không tìm thấy inventory, bạn có thể tạo một bản ghi mới hoặc xử lý lỗi
             // Ví dụ: Log hoặc ném ngoại lệ
             throw new RuntimeException("Inventory not found for ingredient ID: " + transaction.getIngredient().getId());

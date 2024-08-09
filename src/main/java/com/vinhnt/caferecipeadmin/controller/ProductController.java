@@ -1,6 +1,7 @@
 package com.vinhnt.caferecipeadmin.controller;
 
 import com.vinhnt.caferecipeadmin.data.entity.Product;
+import com.vinhnt.caferecipeadmin.service.ProductNotFoundException;
 import com.vinhnt.caferecipeadmin.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -49,11 +50,14 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
-        if (!productService.findById(id).isPresent()) {
+        try {
+            productService.deleteById(id);
+        } catch  (ProductNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
-
-        productService.deleteById(id);
+        catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.noContent().build();
     }
 }
